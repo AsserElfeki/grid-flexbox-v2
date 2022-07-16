@@ -36,23 +36,123 @@ body {
 
 section {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    margin: 0;
+    padding: 0 ;
 }
 
 section h2 {
     font-size: 2.5rem;
+    /* border: solid 3px red; */
+    padding-left: 0.5rem;
+}
+ul{
+    list-style-type:none;
+    padding: 0 0.5rem 0 0.5rem;
+}
+li{
+    margin-bottom: 0.5rem;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 5px;
 }
 
-
 /* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
+figure{
+    margin:0;
+    /* display: flex; 
+    flex-flow: column nowrap; */
+    position: relative;
+    overflow: hidden;  
+    /* justify-content: center;
+    align-items: center; */
+    max-height: 400px;  
+}
 
+figure img{
+    margin-bottom   : -4px;
+    width:100%;
 
+    object-fit:cover;
+    object-position: 0 -150px; 
+    /*because of the max height so I am setting the start of displayed area*/
+    /* flex-basis: 80%; */
+}
+
+figcaption{
+    /* border: solid 5px red; */
+    /* flex-basis: 20%; */
+    position: absolute;
+    background-color: #DBE5DE;
+    bottom: 0%;
+    width: 100%;
+    opacity: 0.9;
+    padding: 0.7rem ;
+    font-size: 1.5rem;
+}
+
+figcaption a{
+    text-decoration: none;
+    color: #001219;
+}
+
+.color-2{
+    border-color: var(--color2);
+}
+.color-3{
+    border-color: var(--color3);
+}
+.color-4{
+    border-color: var(--color4);
+}
+.color-6{
+    border-color: var(--color6);
+}
+.color-7{
+    border-color: var(--color7);
+}
+.color-8{
+    border-color: var(--color8);
+}
 /* At this breakpoint, transition to 2 figures per line */
 
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+ul{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 4px solid black; */
+    /* gap: 1%; */
+}
+li{
+flex-basis: 49.5%;
+}
+
+figure{
+    display: flex;
+    flex-flow: column nowrap;
+}
+figure img{
+object-position:0;
+/* object-fit: cover; */
+}
+}
 
 
 /* At this breakpoint, transition to 3 figures per line */
 
-@media (min-width: 800px) {}
+@media (min-width: 800px) {
+
+    #collections{
+        margin: 0 auto;
+    }
+    li{
+        flex-basis: 33%;
+    }
+    figure img{ 
+        object-position: 50% 50%;
+    }
+    .color-3 figure img {
+        object-position: bottom;
+    }
+}
